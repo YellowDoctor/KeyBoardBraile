@@ -136,9 +136,8 @@ void ByteWrite(byte key) {
 
 void Go() {
   if (SwitchLang) {
-    for (i = 0; i <= sizeof(BraileRUS); i++) {
+    for (i = 0; i < sizeof(BraileRUS); i++) {
       if (KeyByte == BraileRUS[i]) {
-        //KeyByte = 0;
                 Serial.println(LettersRUS[i]);
                 Serial.println(LettersRUS[i], HEX);
                 Serial.println("Ru");
@@ -146,13 +145,14 @@ void Go() {
 
       }
     }
-    KeyByte = 0;
+ 
   } else {
-    for (i = 0; i <= sizeof(BraileEN); i++) {
+    Serial.println(sizeof(BraileEN));
+    for (i = 0; i < sizeof(BraileEN); i++) {
       if (KeyByte == BraileEN[i]) {
-        //        KeyByte = 0;
                 Serial.println(LettersEN[i]);
-                Serial.println(LettersEN[i], HEX);
+                //Serial.println(LettersEN[i], HEX);
+                Serial.println(i);
                 Serial.println("En");
         Package =  LettersEN[i];
 
